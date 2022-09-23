@@ -8,7 +8,7 @@
 8 4 2 4
 Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 */
-/*
+
 void InputMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -17,7 +17,7 @@ void InputMatrix(int[,] matrix)
             matrix[i, j] = new Random().Next(0, 11);
     }
 }
-*/
+
 void PrintMatrix(double[,] matrix)
 {
     Console.WriteLine();
@@ -41,23 +41,28 @@ double[] AvgColumn(double[,] matrix)
         for (int i = 0; i < matrix.GetLength(0); i++)
             avgrow = avgrow + matrix[i, j];
 
-        avgarray[j] = avgrow / matrix.GetLength(0);
+        avgarray[j] = Math.Round(avgrow / matrix.GetLength(0),1);
     }
     return avgarray;
 }
 
+//Закомментировать для автозаполнения массива
 double[,] matrix = new double[,]
 {   {1, 4, 7, 2},
     {5, 9, 2, 3},
     {8, 4, 2, 4},
 };
-/*
+//
+
+/* Раскомментировать для автозаполнения массива
 Console.Write("Введите количество строк матрицы N: ");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов матрицы M: ");
 int m = Convert.ToInt32(Console.ReadLine());
 int[,] matrix = new int[n, m];
-InputMatrix(matrix);*/
+InputMatrix(matrix);
+*/
+
 PrintMatrix(matrix);
 AvgColumn(matrix);
 Console.WriteLine(string.Join("; ", AvgColumn(matrix)));
